@@ -5,7 +5,7 @@ export class ListDataService {
   private subject: BehaviorSubject<TodoListItem[]>;
   private currentId = 2;
   data: TodoListItem[] = [
-    { id: '1', description: 'Clean Bushes', completed: false }
+    { id: '1', description: 'Check Mail', completed: false }
   ];
 
   constructor() {

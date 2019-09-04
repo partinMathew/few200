@@ -7,18 +7,26 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AboutComponent } from './components/about/about.component';
 import { NavComponent } from './components/nav/nav.component';
 import { TodoModule } from './features/todo/todo.module';
+import { CounterComponent } from './components/counter/counter.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { reducers } from './reducers';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     AboutComponent,
-    NavComponent
+    NavComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TodoModule
+    TodoModule,
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [],
   bootstrap: [AppComponent]
