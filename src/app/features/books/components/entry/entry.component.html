@@ -1,1 +1,35 @@
-<p>entry works!</p>
+<div class="alert alert-info" role="alert">
+  <div class="form-group">
+    <label for="bookTitle">Book Title</label>
+    <input
+      type="text"
+      class="form-control"
+      id="bookTitle"
+      placeholder="Enter book title"
+      #title
+    />
+  </div>
+  <div class="form-group">
+    <label for="bookAuthor">Book Author</label>
+    <input
+      type="text"
+      class="form-control"
+      id="bookAuthor"
+      placeholder="Enter book author"
+      #author
+    />
+  </div>
+  <div class="form-group">
+    <label for="bookFormat">Book Format</label>
+    <select class="form-control" id="bookFormat" #format>
+      <option value="">--Please Select One--</option>
+      <option value="Hardcover">Hardcover</option>
+      <option value="Paperback">Paperback</option>
+      <option value="E-book">E-book</option>
+    </select>
+  </div>
+
+  <button (click)="addBook(title, author, format)" class="btn btn-primary">
+    Submit
+  </button>
+</div>
