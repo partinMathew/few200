@@ -1,35 +1,76 @@
-<div class="alert alert-info" role="alert">
-  <div class="form-group">
-    <label for="bookTitle">Book Title</label>
-    <input
-      type="text"
-      class="form-control"
-      id="bookTitle"
-      placeholder="Enter book title"
-      #title
-    />
-  </div>
-  <div class="form-group">
-    <label for="bookAuthor">Book Author</label>
-    <input
-      type="text"
-      class="form-control"
-      id="bookAuthor"
-      placeholder="Enter book author"
-      #author
-    />
-  </div>
-  <div class="form-group">
-    <label for="bookFormat">Book Format</label>
-    <select class="form-control" id="bookFormat" #format>
-      <option value="">--Please Select One--</option>
-      <option value="Hardcover">Hardcover</option>
-      <option value="Paperback">Paperback</option>
-      <option value="E-book">E-book</option>
-    </select>
-  </div>
+<form #f="ngForm">
+  <div class="alert alert-info" role="alert">
+    <div class="form-group">
+      <label for="bookTitle">Book Title</label>
+      <div
+        *ngIf="bookTitle.invalid && (bookTitle.dirty || bookTitle.touched)"
+        class="alert alert-danger"
+      >
+        <div *ngIf="bookTitle?.errors.required">
+          Please enter the title of the book.
+        </div>
+      </div>
+      <input
+        type="text"
+        class="form-control"
+        id="bookTitle"
+        placeholder="Enter book title"
+        required
+        [(ngModel)]="compTitle"
+        #bookTitle="ngModel"
+        #title
+        name="title"
+      />
+    </div>
+    <div class="form-group">
+      <label for="bookAuthor">Book Author</label>
+      <div
+        *ngIf="bookAuthor.invalid && (bookAuthor.dirty || bookAuthor.touched)"
+        class="alert alert-danger"
+      >
+        <div *ngIf="bookAuthor?.errors.required">
+          Please enter the author of the book.
+        </div>
+      </div>
+      <input
+        type="text"
+        class="form-control"
+        id="bookAuthor"
+        placeholder="Enter book author"
+        required
+        [(ngModel)]="compAuthor"
+        #bookAuthor="ngModel"
+        #author
+        name="author"
+      />
+    </div>
+    <div class="form-group">
+      <label for="bookFormat">Book Format</label>
+      <div
+        *ngIf="bookFormat.invalid && (bookFormat.dirty || bookFormat.touched)"
+        class="alert alert-danger"
+      >
+        <div *ngIf="bookFormat?.errors.required">
+          Please select the format of the book.
+        </div>
+      </div>
+      <select class="form-control" id="bookFormat" #format>
+        <option disabled value="">--Please Select One--</option>
+        <option value="Hardcover">Hardcover</option>
+        <option value="Paperback">Paperback</option>
+        <option value="E-book">E-book</option>
+      </select>
+    </div>
 
-  <button (click)="addBook(title, author, format)" class="btn btn-primary">
-    Submit
-  </button>
-</div>
+    <button
+      (click)="addBook(title, author, format)"
+      class="btn btn-primary"
+      [disabled]="f.form.invalid"
+      [(ngModel)]="compFormat"
+      #bookFormat="ngModel"
+      name="format"
+    >
+      Submit
+    </button>
+  </div>
+</form>

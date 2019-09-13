@@ -9,6 +9,9 @@ import { bookAdded } from '../../actions/list.actions';
   styleUrls: ['./entry.component.css']
 })
 export class EntryComponent implements OnInit {
+  compAuthor: string;
+  compTitle: string;
+  compFormat: string;
   constructor(private store: Store<BooksState>) {}
 
   ngOnInit() {}

@@ -8,11 +8,13 @@ import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { ListEffects } from './effects/list.effects';
 import { EntryComponent } from './components/entry/entry.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [BooksComponent, ListComponent, EntryComponent],
   imports: [
     CommonModule,
+    FormsModule,
     StoreModule.forFeature(featureName, reducers),
     EffectsModule.forFeature([ListEffects]),
     HttpClientModule

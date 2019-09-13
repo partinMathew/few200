@@ -15,6 +15,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { CounterEffects } from './effects/counter.effects';
 import { WatchlistModule } from './features/watchlist/watchlist.module';
 import { BooksModule } from './features/books/books.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { BooksModule } from './features/books/books.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     TodoModule,
     WatchlistModule,
     BooksModule,
