@@ -12,9 +12,11 @@ export class EntryComponent implements OnInit {
   compAuthor: string;
   compTitle: string;
   compFormat: string;
-  constructor(private store: Store<BooksState>) {}
+  constructor(private store: Store<BooksState>) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.compFormat = '';
+  }
 
   addBook(
     titleEl: HTMLInputElement,
